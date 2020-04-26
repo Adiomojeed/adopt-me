@@ -31020,17 +31020,30 @@ const Pet = ({
     hero = media[0].small;
   }
 
-  return _react.default.createElement("a", {
-    href: `/details/${id}`,
-    className: "pet"
-  }, _react.default.createElement("div", {
-    className: "image-container"
-  }, _react.default.createElement("img", {
-    src: hero,
-    alt: name
-  })), _react.default.createElement("div", {
-    className: "info"
-  }, _react.default.createElement("h1", null, name), _react.default.createElement("h2", null, `${animal} — ${breed} — ${location}`)));
+  return (
+    /*#__PURE__*/
+    _react.default.createElement("a", {
+      href: `/details/${id}`,
+      className: "pet"
+    },
+    /*#__PURE__*/
+    _react.default.createElement("div", {
+      className: "image-container"
+    },
+    /*#__PURE__*/
+    _react.default.createElement("img", {
+      src: hero,
+      alt: name
+    })),
+    /*#__PURE__*/
+    _react.default.createElement("div", {
+      className: "info"
+    },
+    /*#__PURE__*/
+    _react.default.createElement("h1", null, name),
+    /*#__PURE__*/
+    _react.default.createElement("h2", null, `${animal} — ${breed} — ${location}`)))
+  );
 };
 
 var _default = Pet;
@@ -31052,17 +31065,24 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 const Results = ({
   pets
 }) => {
-  return _react.default.createElement("div", {
-    className: "search"
-  }, pets.length === 0 ? _react.default.createElement("h1", null, "No Pets Found") : pets.map(pet => _react.default.createElement(_Pet.default, {
-    animal: pet.type,
-    key: pet.id,
-    name: pet.name,
-    breed: pet.breeds.primary,
-    media: pet.photos,
-    location: `${pet.contact.address.city}, ${pet.contact.address.state}`,
-    id: pet.id
-  })));
+  return (
+    /*#__PURE__*/
+    _react.default.createElement("div", {
+      className: "search"
+    }, pets.length === 0 ?
+    /*#__PURE__*/
+    _react.default.createElement("h1", null, "No Pets Found") : pets.map(pet =>
+    /*#__PURE__*/
+    _react.default.createElement(_Pet.default, {
+      animal: pet.type,
+      key: pet.id,
+      name: pet.name,
+      breed: pet.breeds.primary,
+      media: pet.photos,
+      location: `${pet.contact.address.city}, ${pet.contact.address.state}`,
+      id: pet.id
+    })))
+  );
 };
 
 var _default = Results;
@@ -32758,15 +32778,23 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 const useDropdown = (label, defaultState, options) => {
   const [state, setState] = (0, _react.useState)(defaultState);
 
-  const Dropdown = () => _react.default.createElement("label", {
+  const Dropdown = () =>
+  /*#__PURE__*/
+  _react.default.createElement("label", {
     htmlFor: label.replace(' ', '').toLowerCase()
-  }, label, _react.default.createElement("select", {
+  }, label,
+  /*#__PURE__*/
+  _react.default.createElement("select", {
     id: label.replace(' ', '').toLowerCase(),
     value: state,
     onChange: e => setState(e.target.value),
     onBlur: e => setState(e.target.value),
     disabled: options.length === 0
-  }, _react.default.createElement("option", null, "All"), options.map(item => _react.default.createElement("option", {
+  },
+  /*#__PURE__*/
+  _react.default.createElement("option", null, "All"), options.map(item =>
+  /*#__PURE__*/
+  _react.default.createElement("option", {
     key: item,
     value: item
   }, item))));
@@ -32828,28 +32856,129 @@ const SearchParams = () => {
       setBreeds(breedStrings);
     }, console.error);
   }, [animal, setBreed, setBreeds]);
-  return _react.default.createElement("div", {
-    className: "search-params"
-  }, _react.default.createElement("form", {
-    onSubmit: e => {
-      e.preventDefault();
-      requestPets();
-    }
-  }, _react.default.createElement("label", {
-    htmlFor: "location"
-  }, "Location", _react.default.createElement("input", {
-    id: "location",
-    value: location,
-    placeholder: "Location",
-    onChange: e => setLocation(e.target.value)
-  })), _react.default.createElement(AnimalDropdown, null), _react.default.createElement(BreedDropdown, null), _react.default.createElement("button", null, "Submit")), _react.default.createElement(_Results.default, {
-    pets: pets
-  }));
+  return (
+    /*#__PURE__*/
+    _react.default.createElement("div", {
+      className: "search-params"
+    },
+    /*#__PURE__*/
+    _react.default.createElement("form", {
+      onSubmit: e => {
+        e.preventDefault();
+        requestPets();
+      }
+    },
+    /*#__PURE__*/
+    _react.default.createElement("label", {
+      htmlFor: "location"
+    }, "Location",
+    /*#__PURE__*/
+    _react.default.createElement("input", {
+      id: "location",
+      value: location,
+      placeholder: "Location",
+      onChange: e => setLocation(e.target.value)
+    })),
+    /*#__PURE__*/
+    _react.default.createElement(AnimalDropdown, null),
+    /*#__PURE__*/
+    _react.default.createElement(BreedDropdown, null),
+    /*#__PURE__*/
+    _react.default.createElement("button", null, "Submit")),
+    /*#__PURE__*/
+    _react.default.createElement(_Results.default, {
+      pets: pets
+    }))
+  );
 };
 
 var _default = SearchParams;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","./Results":"Results.js","@frontendmasters/pet":"../node_modules/@frontendmasters/pet/index.js","./useDropdown":"useDropdown.js"}],"Details.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./Results":"Results.js","@frontendmasters/pet":"../node_modules/@frontendmasters/pet/index.js","./useDropdown":"useDropdown.js"}],"Carousel.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+class Carousel extends _react.Component {
+  constructor(...args) {
+    super(...args);
+
+    _defineProperty(this, "state", {
+      photos: [],
+      active: 0
+    });
+  }
+
+  static getDerivedStateFromProps({
+    media
+  }) {
+    let photos = ["http://placecorgi.com/600/600"];
+
+    if (media.length) {
+      photos = media.map(({
+        large
+      }) => large);
+    }
+
+    return {
+      photos
+    };
+  }
+
+  handleIndexClick(e) {
+    // dataset refers to the data-index attr
+    this.setState({
+      active: Number(e.target.dataset.index)
+    });
+  }
+
+  render() {
+    const {
+      photos,
+      active
+    } = this.state;
+    return (
+      /*#__PURE__*/
+      _react.default.createElement("div", {
+        className: "carousel"
+      },
+      /*#__PURE__*/
+      _react.default.createElement("img", {
+        src: photos[active],
+        alt: "animal"
+      }),
+      /*#__PURE__*/
+      _react.default.createElement("div", {
+        className: "carousel-smaller"
+      }, photos.map((photo, index) =>
+      /*#__PURE__*/
+      _react.default.createElement("img", {
+        key: photo,
+        onClick: this.handleIndexClick.bind(this),
+        "data-index": index,
+        src: photo,
+        className: index === active ? "active" : "",
+        alt: "animal thumbnail"
+      }))))
+    );
+  }
+
+}
+
+var _default = Carousel;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js"}],"Details.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -32859,17 +32988,82 @@ exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
+var _pet = _interopRequireDefault(require("@frontendmasters/pet"));
+
+var _Carousel = _interopRequireDefault(require("./Carousel"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const Details = ({
-  id
-}) => {
-  return _react.default.createElement("h1", null, "Lol ", id);
-};
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+class Details extends _react.default.Component {
+  constructor(...args) {
+    super(...args);
+
+    _defineProperty(this, "state", {
+      loading: true
+    });
+  }
+
+  componentDidMount() {
+    _pet.default.animal(this.props.id).then(({
+      animal
+    }) => {
+      this.setState({
+        name: animal.name,
+        animal: animal.type,
+        location: `${animal.contact.address.city}, ${animal.contact.address.state}`,
+        description: animal.description,
+        media: animal.photos,
+        breed: animal.breeds.primary,
+        loading: false
+      });
+    }, console.error);
+  }
+
+  render() {
+    if (this.state.loading) {
+      return (
+        /*#__PURE__*/
+        _react.default.createElement("h1", null, "Loading ...")
+      );
+    }
+
+    const {
+      animal,
+      breed,
+      location,
+      description,
+      name,
+      media
+    } = this.state;
+    return (
+      /*#__PURE__*/
+      _react.default.createElement("div", {
+        className: "details"
+      },
+      /*#__PURE__*/
+      _react.default.createElement(_Carousel.default, {
+        media: media
+      }),
+      /*#__PURE__*/
+      _react.default.createElement("div", null,
+      /*#__PURE__*/
+      _react.default.createElement("h1", null, name),
+      /*#__PURE__*/
+      _react.default.createElement("h2", null, `${animal} - ${breed} - ${location}`),
+      /*#__PURE__*/
+      _react.default.createElement("button", null, "Adopt ", name),
+      /*#__PURE__*/
+      _react.default.createElement("p", null, description)))
+    );
+  }
+
+}
 
 var _default = Details;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js"}],"NotFound.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","@frontendmasters/pet":"../node_modules/@frontendmasters/pet/index.js","./Carousel":"Carousel.js"}],"NotFound.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -32882,7 +33076,10 @@ var _react = _interopRequireDefault(require("react"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const NotFound = () => {
-  return _react.default.createElement("h1", null, "Not Found");
+  return (
+    /*#__PURE__*/
+    _react.default.createElement("h1", null, "Not Found")
+  );
 };
 
 var _default = NotFound;
@@ -32905,19 +33102,38 @@ var _NotFound = _interopRequireDefault(require("./NotFound"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const App = () => {
-  return _react.default.createElement(_react.default.StrictMode, null, _react.default.createElement("div", null, _react.default.createElement("header", null, _react.default.createElement(_router.Link, {
-    to: "/"
-  }, "Adopt Me!")), _react.default.createElement(_router.Router, null, _react.default.createElement(_SearchParams.default, {
-    path: "/"
-  }), _react.default.createElement(_Details.default, {
-    path: "/details/:id"
-  }), _react.default.createElement(_NotFound.default, {
-    default: true,
-    path: "notfound"
-  }))));
+  return (
+    /*#__PURE__*/
+    _react.default.createElement(_react.default.StrictMode, null,
+    /*#__PURE__*/
+    _react.default.createElement("div", null,
+    /*#__PURE__*/
+    _react.default.createElement("header", null,
+    /*#__PURE__*/
+    _react.default.createElement(_router.Link, {
+      to: "/"
+    }, "Adopt Me!")),
+    /*#__PURE__*/
+    _react.default.createElement(_router.Router, null,
+    /*#__PURE__*/
+    _react.default.createElement(_SearchParams.default, {
+      path: "/"
+    }),
+    /*#__PURE__*/
+    _react.default.createElement(_Details.default, {
+      path: "/details/:id"
+    }),
+    /*#__PURE__*/
+    _react.default.createElement(_NotFound.default, {
+      default: true,
+      path: "notfound"
+    }))))
+  );
 };
 
-_reactDom.default.render(_react.default.createElement(App, null), document.querySelector("#root"));
+_reactDom.default.render(
+/*#__PURE__*/
+_react.default.createElement(App, null), document.querySelector("#root"));
 },{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","@reach/router":"../node_modules/@reach/router/es/index.js","./SearchParams":"SearchParams.js","./Details":"Details.js","./NotFound":"NotFound.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -32946,7 +33162,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "42981" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "34991" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

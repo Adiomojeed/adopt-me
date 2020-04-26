@@ -22,7 +22,11 @@
   },
   "homepage": "https://github.com/Adiomojeed/adopt-me#readme",
   "devDependencies": {
-    "babel-eslint": "^10.0.3",
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/preset-env": "^7.9.5",
+    "@babel/preset-react": "^7.9.4",
+    "babel-eslint": "^10.1.0",
     "cross-env": "^7.0.2",
     "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-jsx-a11y": "^6.2.3",
