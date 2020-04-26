@@ -7,7 +7,8 @@
     "dev": "parcel src/index.html",
     "format": "prettier \"src/**/*.{js,html}\" --write",
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev:mock": "cross-env PET_MOCK=mock npm run dev"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,7 @@
   "homepage": "https://github.com/Adiomojeed/adopt-me#readme",
   "devDependencies": {
     "babel-eslint": "^10.0.3",
+    "cross-env": "^7.0.2",
     "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.18.3",
@@ -31,10 +33,13 @@
   },
   "dependencies": {
     "@frontendmasters/pet": "^1.0.3",
+    "@reach/router": "^1.3.3",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.0",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   },
-  "browserslist": ["last 2 Chrome versions"]
+  "browserslist": [
+    "last 2 Chrome versions"
+  ]
 }
