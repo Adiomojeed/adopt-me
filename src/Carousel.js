@@ -12,6 +12,7 @@ class Carousel extends Component {
       photos = media.map(({ large }) => large);
     }
 
+    // sets state of photos
     return { photos };
   }
   handleIndexClick(e) {
